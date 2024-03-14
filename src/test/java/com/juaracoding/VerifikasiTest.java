@@ -61,5 +61,46 @@ public class VerifikasiTest {
         extentTest.log(LogStatus.PASS,"klik tombol Verikasi");
     }
 
+    @And("User klik tombol OK")
+    public void User_klik_tombol_OK(){
+        DriverSingleton.delay(2);
+        verifikasiPage.clickBtnOk();
+        extentTest.log(LogStatus.PASS,"User klik tombol OK");
+    }
+
+    @Then("User mendapatkan feedback Sukses verifikasi data klik OK")
+    public void User_mendapatkan_feedback_Sukses_verifikasi_data_klik_OK(){
+        DriverSingleton.delay(1);
+        driver.switchTo().alert().accept();
+
+    }
+
+//-----------------------------------------------
+    @And("User mengubah Pembayaran QRIS")
+    public void User_mengubah_Pembayaran_QRIS(){
+        ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(newTab.get(1));
+
+        DriverSingleton.delay(2);
+
+        verifikasiPage.ubahPembayaranQris();
+        extentTest.log(LogStatus.PASS,"User mengubah Pembayaran QRIS");
+
+    }
+
+//-----------------------------------------------
+    @And("User klik tombol edit")
+    public void User_klik_tombol_edit(){
+        ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(newTab.get(1));
+        /*Scroll kebawah*/
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,1500)");
+
+        DriverSingleton.delay(2);
+
+        verifikasiPage.clickBtnEdit();
+        extentTest.log(LogStatus.PASS,"User klik tombol edit");
+    }
 
 }
