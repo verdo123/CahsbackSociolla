@@ -2,7 +2,7 @@ package com.juaracoding.utils;
 
 public enum TestCases {
 
-    T1("Verifikator melakukan edit pada data cashback");
+    T3("Verifikator melakukan edit pada data cashback");
 
 
     private String testCaseName;

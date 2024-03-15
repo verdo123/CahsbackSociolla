@@ -1,11 +1,15 @@
 package com.juaracoding.pages;
 
 import com.juaracoding.drivers.DriverSingleton;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+
+import javax.xml.xpath.XPath;
 
 public class VerifikasiPage {
 
@@ -31,7 +35,7 @@ public class VerifikasiPage {
     @FindBy(xpath = "/html/body/div[1]/div/div/div[3]/button[1]")
     private WebElement BtnOk;
 
-    @FindBy(xpath = "//*[@id=\"Qris_Pay\"]")
+    @FindBy(xpath = "//*[@id='Qris_Pay']/option[3]")
     private WebElement pilihPembayaranQris;
 
     @FindBy(xpath = "//*[@id='Qris_Pay']/option[3]")
@@ -40,10 +44,27 @@ public class VerifikasiPage {
     @FindBy(xpath = "//*[@id='btnEdit']")
     private WebElement BtnEdit;
 
+    @FindBy(xpath = "//*[@id='Customer_Name']")
+    private WebElement coloumnNamaLengkap;
+
+    @FindBy(xpath = "//*[@id='Phone_Number']")
+    private WebElement coloumnNomorHp;
+
+    @FindBy(xpath = "//*[@id='No_Rek_bca']")
+    private WebElement coloumnNomorRekening;
+
+    @FindBy(xpath = "//input[@id='Amount']")
+    private WebElement coloumnNominal;
+
+    @FindBy(xpath = "//input[@id='Transaction_Date']")
+    private WebElement coloumnTanggalTransaksi;
+
+    @FindBy(xpath = "//button[@id='btnUpdate']//span[@class='fa fa-save']")
+    private WebElement BtnSimpan;
 
 //----------------------------------------------------------------
 
-    public void setVerifikasiMenu(){verifikasiMenu.click();}
+    public void clickVerifikasiMenu(){verifikasiMenu.click();}
 
     public void clickBtnAksi(){BtnAksi.click();}
 
@@ -58,10 +79,35 @@ public class VerifikasiPage {
         select.selectByValue("Bca Mobile Sakuku");
     }
 
-
     public void clickBcaMobile(){BcaMobile.click();}
 
     public void clickBtnEdit(){BtnEdit.click();}
 
+    public void inputNamaLengkap(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNamaLengkap);
+        coloumnNamaLengkap.sendKeys("tester daviarta");}
+
+    public void inputNomorHp(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNomorHp);
+        coloumnNomorHp.sendKeys("087795951234");}
+
+    public void inputNomorRekening(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNomorRekening);
+        coloumnNomorRekening.sendKeys("99887766");}
+
+    public void inputNominalTransaksi(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNominal);
+        coloumnNominal.sendKeys("400000");}
+
+    public void inputTanggalTransaksi(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnTanggalTransaksi);
+        coloumnTanggalTransaksi.sendKeys("15/03/2024");}
+
+    public void clickBtnSave(){BtnSimpan.click();}
 
 }

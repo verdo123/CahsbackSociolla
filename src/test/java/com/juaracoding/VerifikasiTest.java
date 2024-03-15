@@ -37,7 +37,7 @@ public class VerifikasiTest {
 
     @When("User klik menu verifikasi pada side bar")
     public void User_klik_menu_verifikasi_pada_side_bar(){
-        verifikasiPage.setVerifikasiMenu();
+        verifikasiPage.clickVerifikasiMenu();
         extentTest.log(LogStatus.PASS,"User klik menu verifikasi pada side bar");
     }
 
@@ -102,5 +102,43 @@ public class VerifikasiTest {
         verifikasiPage.clickBtnEdit();
         extentTest.log(LogStatus.PASS,"User klik tombol edit");
     }
+
+    @And("User input nama lengkap")
+    public void User_input_nama_lengkap(){
+        verifikasiPage.inputNamaLengkap();
+        extentTest.log(LogStatus.PASS,"User input nama lengkap");
+    }
+
+    @And("User input nomor HP")
+    public void User_input_nomor_HP(){
+        verifikasiPage.inputNomorHp();
+        extentTest.log(LogStatus.PASS,"User input nomor HP");
+    }
+
+    @And("User input nomor rekening")
+    public void User_input_nomor_rekening(){
+        verifikasiPage.inputNomorRekening();
+        extentTest.log(LogStatus.PASS,"User input nomor rekening");
+    }
+
+    @And("User input nominal transaksi")
+    public void User_input_nominal_transaksi(){
+        verifikasiPage.inputNominalTransaksi();
+        extentTest.log(LogStatus.PASS,"User input nominal transaksi");
+    }
+
+    @And("User input tanggal transaksi")
+    public void User_input_tanggal_transaksi(){
+        verifikasiPage.inputTanggalTransaksi();
+        extentTest.log(LogStatus.PASS,"User input tanggal transaksi");
+    }
+
+    @Then("User klik tommbol save")
+    public void User_klik_tommbol_save(){
+        verifikasiPage.clickBtnSave();
+        extentTest.log(LogStatus.PASS,"User klik tommbol save");
+    }
+
+
 
 }
