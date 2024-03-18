@@ -56,11 +56,17 @@ public class VerifikasiPage {
     @FindBy(xpath = "//input[@id='Amount']")
     private WebElement coloumnNominal;
 
+    @FindBy(xpath = "//input[@id='Amount']")
+    private WebElement coloumnNominalTransaksi;
+
     @FindBy(xpath = "//input[@id='Transaction_Date']")
     private WebElement coloumnTanggalTransaksi;
 
     @FindBy(xpath = "//button[@id='btnUpdate']//span[@class='fa fa-save']")
     private WebElement BtnSimpan;
+
+    @FindBy(xpath = "//*[@id='Customer_Name_error']")
+    private WebElement TxtRequired;
 
 //----------------------------------------------------------------
 
@@ -103,10 +109,53 @@ public class VerifikasiPage {
         js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNominal);
         coloumnNominal.sendKeys("400000");}
 
+    public void inputNominalMinimumTransaksi(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNominal);
+        coloumnNominal.sendKeys("200000");}
+
     public void inputTanggalTransaksi(){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnTanggalTransaksi);
         coloumnTanggalTransaksi.sendKeys("15/03/2024");}
+
+
+//------------------Negatif-------------------//
+
+    public String getTxtRequired(){
+        return TxtRequired.getText();
+    }
+
+    public void inputNamaLengkapNegatif(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNamaLengkap);
+        }
+
+    public void inputNomorHpNegatif() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNomorHp);
+        }
+
+    public void inputNomorRekeningNegatif(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNomorRekening);
+        }
+
+    public void inputNominalTransaksiNegatif(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNominal);
+        }
+
+    public void inputNominalMinimumTransaksiNegatif(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnNominal);
+        }
+
+    public void inputTanggalTransaksiNegatif(){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].focus(); arguments[0].select(); document.execCommand('delete');", coloumnTanggalTransaksi);
+        }
+
 
     public void clickBtnSave(){BtnSimpan.click();}
 

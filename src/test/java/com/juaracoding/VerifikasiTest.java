@@ -11,6 +11,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
 import java.util.ArrayList;
 
 public class VerifikasiTest {
@@ -138,6 +140,53 @@ public class VerifikasiTest {
         verifikasiPage.clickBtnSave();
         extentTest.log(LogStatus.PASS,"User klik tommbol save");
     }
+
+//-----------------------------------------------
+    @And("User input nominal transaksi dibawah minimal cashback")
+    public void User_input_nominal_transaksi_dibawah_minimal_cashback(){
+    verifikasiPage.inputNominalMinimumTransaksi();
+    extentTest.log(LogStatus.PASS,"User input nominal transaksi dibawah minimal cashback");
+    }
+
+
+//Negatif-----------------------------------------------
+
+    @And("User tidak input nama lengkap")
+    public void User_tidak_input_nama_lengkap(){
+        verifikasiPage.inputNamaLengkapNegatif();
+        extentTest.log(LogStatus.PASS,"User tidak input nama lengkap");
+    }
+
+    @And("User tidak input nomor HP")
+    public void User_tidak_input_nomor_HP(){
+        verifikasiPage.inputNomorHpNegatif();
+        extentTest.log(LogStatus.PASS,"User tidak input nomor HP");
+    }
+
+    @And("User tidak input nomor rekening")
+    public void User_tidak_input_nomor_rekening(){
+        verifikasiPage.inputNomorRekeningNegatif();
+        extentTest.log(LogStatus.PASS,"User tidak input nomor rekening");
+    }
+
+    @And("User tidak input nominal transaksi")
+    public void User_tidak_input_nominal_transaksi(){
+        verifikasiPage.inputNominalTransaksiNegatif();
+        extentTest.log(LogStatus.PASS,"User tidak input nominal transaksi");
+    }
+
+    @And("User tidak input tanggal transaksi")
+    public void User_tidak_input_tanggal_transaksi(){
+        verifikasiPage.inputTanggalTransaksiNegatif();
+        extentTest.log(LogStatus.PASS,"User tidak input tanggal transaksi");
+    }
+
+    @Then("User mendapatkan alert The Customer Name field is required")
+    public void User_mendapatkan_alert_The_Customer_Name_field_is_required(){
+        Assert.assertEquals(verifikasiPage.getTxtRequired(),"The Customer Name field is required.");
+        extentTest.log(LogStatus.PASS,"User mendapatkan alert The Customer Name field is required");
+    }
+
 
 
 
