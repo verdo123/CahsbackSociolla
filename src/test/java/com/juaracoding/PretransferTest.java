@@ -28,11 +28,11 @@ public class PretransferTest {
         extentTest = Hooks.extentTest;
     }
 
-    @Given("User telah berhasil login")
-    public void User_telah_berhasil_login(){
+    @Given("User login")
+    public void User_login(){
         driver.get("https://staging.ptkta.com/xcashback_sociolla/login");
         loginPage.formLogin();
-        extentTest.log(LogStatus.PASS,"User telah berhasil login");
+        extentTest.log(LogStatus.PASS,"User login");
     }
 
     @When("User klik menu Pre-transfer pada side bar")
