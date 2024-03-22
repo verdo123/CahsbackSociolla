@@ -187,6 +187,11 @@ public class VerifikasiTest {
         extentTest.log(LogStatus.PASS,"User mendapatkan alert The Customer Name field is required");
     }
 
+    @And("User mengubah No Handphone yang sudah ada pada daftar verifikasi")
+    public void User_mengubah_No_Handphone_yang_sudah_ada_pada_daftar_verifikasi(){
+        verifikasiPage.inputNomorHp();
+        extentTest.log(LogStatus.PASS,"User mengubah No Handphone yang sudah ada pada daftar verifikasi");
+    }
 
 
 

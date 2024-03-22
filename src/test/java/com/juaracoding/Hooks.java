@@ -36,7 +36,7 @@ public class Hooks {
             String screenshotPath = Utils.getScreenshot(driver, scenario.getName())
                     .replace(" ","_");
             extentTest.log(LogStatus.FAIL, scenario.getName()+"\n"
-            +extentTest.addScreenCapture(screenshotPath));
+                    +extentTest.addScreenCapture(screenshotPath));
         }
     }
 
@@ -45,7 +45,6 @@ public class Hooks {
         reports.endTest(extentTest);
         reports.flush();
     }
-
 
     @AfterAll
     public static void finish(){
